@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculate Average</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<form>
+		<h1>Calculate Average</h1>
+		<label>1st Subject: <input type="number" id="subject1" placeholder="Enter Subject Grade"></label>
+		<label>2nd Subject: <input type="number" id="subject2" placeholder="Enter Subject Grade"></label>
+		<label>3rd Subject: <input type="number" id="subject3" placeholder="Enter Subject Grade"></label>
+		<label>4th Subject: <input type="number" id="subject4" placeholder="Enter Subject Grade"></label>
+		<label>5th Subject: <input type="number" id="subject5" placeholder="Enter Subject Grade"></label>
+		<label>6th Subject: <input type="number" id="subject6" placeholder="Enter Subject Grade"></label>
+		<label>7th Subject: <input type="number" id="subject7" placeholder="Enter Subject Grade"></label>
+		<div style="text-align: center;">
+			<button type="button" onclick="calculateAverage()">Calculate Average</button>
+		</div>
+		
+		<p>Average: <span id="average"></span></p>
+		<p>Remarks: <span id="remarks"></span></p>
+		<p>Description: <span id="descriptor"></span></p>
+	</form>
+
+	<script>
+		function calculateAverage() {
+			// get the values of the input fields
+			var subject1 = Number(document.getElementById("subject1").value);
+			var subject2 = Number(document.getElementById("subject2").value);
+			var subject3 = Number(document.getElementById("subject3").value);
+			var subject4 = Number(document.getElementById("subject4").value);
+			var subject5 = Number(document.getElementById("subject5").value);
+			var subject6 = Number(document.getElementById("subject6").value);
+			var subject7 = Number(document.getElementById("subject7").value);
+
+			// calculate the average
+			var sum = subject1 + subject2 + subject3 + subject4 + subject5 + subject6 + subject7;
+			var average = sum / 7;
+
+			// display the average
+			document.getElementById("average").innerHTML = average.toFixed(2);
+
+			if(average <= 75){
+				document.getElementById("descriptor").innerHTML ="Did not meet Expectations";
+				document.getElementById("remarks").innerHTML ="Failed";
+			}
+			if(average >= 75 && average <= 79){
+				document.getElementById("descriptor").innerHTML ="Fairly Satisfactory";
+				document.getElementById("remarks").innerHTML ="Passed";
+			}
+			if(average >= 80 && average <= 84){
+				document.getElementById("descriptor").innerHTML ="Satisfactory";
+				document.getElementById("remarks").innerHTML ="Passed";
+			}
+			if(average >= 85 && average <= 89){
+				document.getElementById("descriptor").innerHTML ="Very Satisfactory";
+				document.getElementById("remarks").innerHTML ="Passed";
+			}
+			if(average >= 90 && average <= 100){
+				document.getElementById("descriptor").innerHTML ="Outstanding";
+				document.getElementById("remarks").innerHTML ="Passed";
+			}
+			if(average >= 100){
+				document.getElementById("descriptor").innerHTML ="Does not Exist";
+				document.getElementById("remarks").innerHTML ="Does not Exist";
+			}
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
